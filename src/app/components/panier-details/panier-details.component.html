@@ -1,0 +1,52 @@
+<div class="container-fuild p-3">
+    <div class="row">
+        <div class="col-lg-10 offser-lg-1">
+            <div class="panier_container" *ngIf="panierItems.length > 0">
+                <div>Panier : {{ totalQuantity }} articles dans votre panier</div>
+                <div class="panier_items">
+                    <ul class="panier_list">
+                        <li class="panier_item clearfix" *ngFor="let tempItem of panierItems">
+                            <div class="panier_item_image"><img src="{{ tempItem.pictureUrl }}" alt=""></div>
+                            <div class="panier_item_info d-flex flex-md-row flex-column justify-content-between">
+                                <div class="panier_item_name cart_info_col">
+                                    <div class="panier_item_title">Name</div>
+                                    <div class="panier_item_text">{{ tempItem.name }}</div>
+                                </div>
+                                <div class="panier_item_quantity cart_info_col">
+                                    <div class="panier_item_title">Quantity</div>
+                                   
+                                    <div class="panier_item_text"> 
+                                        <button (click)="removeQuantity(tempItem)" class="btn-sm"> - </button>  
+                                        {{ tempItem.quantity }}   
+                                        <button (click)="increaseQuantity(tempItem)" class="btn-sm"> + </button> 
+                                    </div>
+                                </div>
+                                <div class="panier_item_price cart_info_col">
+                                    <div class="panier_item_title">Price</div>
+                                    <div class="panier_item_text"> {{ tempItem.prix | currency: 'EUR' }} </div>
+                                </div>
+                                <div class="panier_item_total cart_info_col">
+                                    <div class="panier_item_title">Total</div>
+                                    <div class="panier_item_text"> {{ tempItem.quantity * tempItem.prix | currency: 'EUR' }} </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="order_total">
+                    <div class="order_total_content text-md-right">
+                        <div class="order_total_title">Total Commande :</div>
+                        <div class="order_total_texr">{{ totalPrice | currency: 'EUR' }}</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div *ngIf="panierItems.length == 0" class="alert alert-danger col-md-12 p-2" role="alert">
+                <i>Votre Panier est vide</i>
+            </div>
+
+        </div>
+    </div>
+</div>

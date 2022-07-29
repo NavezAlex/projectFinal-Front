@@ -1,0 +1,21 @@
+<div class="detail-section pt-5">
+    <div class="container-fluid">
+      <div class="row mt-5">
+        <div class="col-md-5">
+          <img src="{{ product.pictureUrl }}" alt="product.pictureUrl" class="detail-img">
+        </div>
+        <div class="col-md-5">
+          <h3>{{ product.name }}</h3>
+          <div class="price">{{ product.prix | currency: 'EUR' }}</div>
+          <button (click)="addToPanier()" class="btn btn-primary btn-sm">Add to cart</button>
+          <hr>
+          <h3>Description</h3>
+          <p>{{ product.description }}</p>
+          <a routerLink="/article" class="mt-5" >Retour à la liste</a>
+        </div>
+      </div>
+     
+  
+    </div>
+  </div>
+  

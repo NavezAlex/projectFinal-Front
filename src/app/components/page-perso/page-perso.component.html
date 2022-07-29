@@ -1,0 +1,47 @@
+
+<div class="card-box" *ngIf="clientData | async as client">
+
+    <div class="row">
+        <h2 style="text-align: center;" >Votre Fiche de Client : </h2>
+    </div>
+
+        <div class="row">
+            <div class="offset-lg-3 col-lg-6">
+                <div>
+                    <span> First Name : </span> {{client.firstName}}
+                </div>
+            </div>
+
+            <div class="offset-lg-3 col-lg-6">
+                <div>
+                    <span> Last Name : </span> {{client.lastName}}
+                </div>
+            </div>
+            
+            <div class="offset-lg-3 col-lg-6">
+                <div>
+                    <span> Email : </span> {{client.email}}
+                </div>
+            </div>
+
+            <div class="offset-lg-3 col-lg-6">
+                <div>
+                    <span> Date de Naissance : </span> {{client.dateNaissance}}
+                </div>
+            </div>
+
+            <div class="offset-lg-3 col-lg-6">
+                <div>
+                    <span> Téléphone : </span> {{client.phone}}
+                </div>
+            </div>
+
+            <div class="offset-lg-3 col-lg-6">
+                <button routerLink="./edit/{{client.username}}" class="btn btn-primary">Edit</button>
+            </div>
+            
+        </div>
+    
+        
+    
+</div>

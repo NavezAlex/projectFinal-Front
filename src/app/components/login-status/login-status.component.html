@@ -1,0 +1,7 @@
+<div>
+    <span *ngIf="isAuthenticated()">
+        Bienvenue {{ userName }}
+    </span>
+    <button *ngIf="!isAuthenticated()" routerLink="/login" class="btn btn-success">Login</button>
+    <button *ngIf="isAuthenticated()" (click)="logout()" class="btn btn-warning">Logout</button>
+</div>

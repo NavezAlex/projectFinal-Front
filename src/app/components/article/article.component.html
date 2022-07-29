@@ -1,0 +1,39 @@
+<div class="main-content">
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <div class="row">
+
+        <div *ngFor="let prod of products" class="col-md-3">
+          <div class="card card-cascade card-ecommerce wider shadow mb-5 ">
+
+              <div class="view view-cascade overlay text-center"> 
+                <a routerLink="/article/{{ prod.id }}">
+                  <img src="{{ prod.pictureUrl }}" alt="prod.pictureUrl" class="img-responsive"> 
+                </a>
+                <a>
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+
+              <div class="card-body card-body-cascade text-center">
+                  <h4 class="card-title"><strong><a routerLink="/article/{{ prod.id }}">{{ prod.name }}</a></strong></h4> <!-- Card Description-->
+                  <p class="card-text">{{ prod.description }} </p>
+                  <p class="price">{{ prod.prix | currency:'EUR' }}</p> 
+
+                  <div class="card-footer">
+                    <a (click)="addToPanier(prod)" class="clickable"> ADD TO PANIER </a>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+          <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert" >
+              No products found.
+          </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>

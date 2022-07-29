@@ -1,0 +1,46 @@
+<div class="container-fluid" style="margin-top: 10%;">
+    <div class="row">
+        <div class="offset-lg-3 col-lg-6">
+            
+            <div class="card-box" style="background-color: #ccc;">
+                <form [formGroup]="Login" (ngSubmit)="ProceedLogin()">
+                
+                    <div class="row" style="display: block;">
+                        <h2 style="text-align: center;" >Login</h2>
+                    </div>
+                        
+                    <div class="row">
+                        <div class="offset-lg-3 col-lg-6">
+                            <div class="form-group">
+                                <label for="txtname">Username</label>
+                                <input type="text" id="txtname" class="form-control" formControlName="username" placeholder="Enter the User Name" />
+                                <!-- <div *ngIf="Login.get('username')?.invalid || (Login.get('username')?.touched && Login.get('username')?.errors?.['required'] )">Erreur</div> -->
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="offset-lg-3 col-lg-6">
+                            <div class="form-group">
+                                <label for="txtpassword">Password</label>
+                                <input type="password" id="txtpassword" class="form-control" formControlName="password"  placeholder="Enter the password" />
+                                <!-- <div *ngIf="Login.get('password')?.invalid || (Login.get('password')?.touched && Login.get('password')?.errors?.['required'] )">Erreur</div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="btn-toolbar offset-lg-3 col-lg-6" role="toolbar" style="text-align: center; margin:auto;">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" >Login</button>
+                        </div>
+                        <button routerLink="/register" type="text" class="btn btn-success" >S'enregistrer</button>
+                    </div>
+
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
