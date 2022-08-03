@@ -39,4 +39,18 @@ export class PanierDetailsComponent implements OnInit {
     this.panierService.removePanierItem(panierItem);
   }
 
+  isAuthenticated(): boolean {
+    if(sessionStorage.getItem('username')){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  confirmCommande(){
+    this.panierService.clearPanier();
+    this.listPanierDetails();
+  }
+
 }

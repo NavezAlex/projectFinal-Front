@@ -72,4 +72,9 @@ export class PanierService {
     }
   }
 
+  clearPanier(){
+    this.panierItems = [];
+    this.alreadyExist = false;
+  }
+
 }

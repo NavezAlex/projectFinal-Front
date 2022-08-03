@@ -1,0 +1,34 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Image</th>
+      <th scope="col">Description</th>
+      <th scope="col">Prix</th>
+      <th scope="col">Actif</th>
+      <th scope="col">Stock</th>
+      <th scope="col">Catégorie</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>
+        <img [src]="'./assets/picture/'+ product.pictureUrl" alt="product.pictureUrl" class="me-2" style="width: 40px"> {{ product.name }}
+      </td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.prix | currency: 'EUR' }}</td>
+      <td>
+        <button type="button" class="btn btn-outline-success" disabled *ngIf="product.actif">Actif</button>
+        <button type="button" class="btn btn-outline-danger" disabled *ngIf="!product.actif">Inactif</button>
+        
+      </td>
+      <td>{{ product.stock }}</td>
+      <td>{{ product.categorie.name }}</td>
+      <td><button type="button" class="btn btn-primary" routerLink="/article-update/{{ product.id }}">Update</button></td>
+    </tr>
+  </tbody>
+  <button type="button" class="btn btn-primary" routerLink="/article-add">Ajouter Article</button>
+</table>
+

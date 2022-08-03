@@ -2,12 +2,13 @@
     <div class="container-fluid">
       <div class="row mt-5">
         <div class="col-md-5">
-          <img src="{{ product.pictureUrl }}" alt="product.pictureUrl" class="detail-img">
+          <img [src]="'./assets/picture/'+ product.pictureUrl" alt="product.pictureUrl" class="img-responsive" style="height: 150px">
         </div>
         <div class="col-md-5">
           <h3>{{ product.name }}</h3>
           <div class="price">{{ product.prix | currency: 'EUR' }}</div>
-          <button (click)="addToPanier()" class="btn btn-primary btn-sm">Add to cart</button>
+          <button (click)="addToPanier()" class="btn btn-primary btn-sm" *ngIf="product.stock > 0">Ajouter au Panier</button>
+          <div class="btn btn-danger" *ngIf="product.stock == 0">RUPTURE DE STOCK</div>
           <hr>
           <h3>Description</h3>
           <p>{{ product.description }}</p>

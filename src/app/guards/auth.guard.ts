@@ -18,6 +18,5 @@ import { AuthService } from "../services/auth.service";
             this.router.navigate(['/login']);
             return false;
         }
-        
-    }    
+    }
   }

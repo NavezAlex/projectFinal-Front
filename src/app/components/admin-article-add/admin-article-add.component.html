@@ -26,25 +26,47 @@
         <div class="row">
             <div class="offset-lg-3 col-lg-6">
                 <div class="form-group">
-                    <label for="prix">Prix</label>
-                    <input type="text" id="prix" class="form-control" formControlName="prix"/>
-                    <span class="input-group-text">€</span>
+                    <label for="categorie">Categorie</label>
+                    <select class="form-select" id="categorie" formControlName="categorie">
+                        <option *ngFor="let cat of productCategory" [value]="cat.id">{{cat.name}}</option>
+                    </select>
                 </div>
             </div>
-        </div>        
+        </div>
 
+        <div class="row">
+            <div class="offset-lg-3 col-lg-6">
+                <div class="form-group">
+                    <label for="prix">Prix</label>
+                    <input type="text" id="prix" class="form-control" formControlName="prix" placeholder="€"/>
+                </div>
+            </div>
+        </div>     
+        
+        <div class="row">
+            <div class="offset-lg-3 col-lg-6">
+                <div class="form-group">
+                    <label for="stock">Stock</label>
+                    <input type="text" id="stock" class="form-control" formControlName="stock" />
+                </div>
+            </div>
+        </div>
 
-    prix : new FormControl('', [Validators.required]),
-    actif : new FormControl('', [Validators.required]),
-    stock : new FormControl('', [Validators.required, Validators.minLength(1)]),
-    pictureUrl : new FormControl('', [Validators.required]),
-    categorie : new FormControl('', [Validators.required])
+        <div class="row">
+            <div class="offset-lg-3 col-lg-6">
+                <div class="form-group">
+                    <label for="picture">PictureUrl</label>
+                    <input type="text" id="picture" class="form-control" formControlName="picture" />
+                </div>
+            </div>
+        </div>
 
         <br>
         <div class="row">
             <div class="offset-lg-3">
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" >Enregistrer l'Article</button>
+                    <button type="button" class="btn btn-secondary  btn-lg btn-block" routerLink="/list-article">Retour</button>
                 </div>
             </div>
         </div>

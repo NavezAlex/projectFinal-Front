@@ -21,7 +21,6 @@ export class ArticleComponent implements OnInit {
   constructor( private route: ActivatedRoute, private client : HttpClient, private panierService : PanierService ) { }
 
   ngOnInit() {
-    console.log("Hello World");
     this.loadData();
   }
 

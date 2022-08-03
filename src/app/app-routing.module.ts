@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminArticleAddComponent } from './components/admin-article-add/admin-article-add.component';
 import { AdminArticleUpdateComponent } from './components/admin-article-update/admin-article-update.component';
+import { AdminListArticleComponent } from './components/admin-list-article/admin-list-article.component';
+import { AdminListClientComponent } from './components/admin-list-client/admin-list-client.component';
 import { ArticleDetailsComponent } from './components/article-details/article-details.component';
 import { ArticleComponent } from './components/article/article.component';
 import { HomeComponent } from './components/home/home.component';
@@ -24,6 +26,8 @@ const routes: Routes = [
   { path: 'panier-details', component: PanierDetailsComponent },
   { path: 'article-add', component:AdminArticleAddComponent, canActivate: [AuthGuard] },
   { path: 'article-update/:id', component: AdminArticleUpdateComponent, canActivate: [AuthGuard] },
+  { path: 'list-article', component: AdminListArticleComponent, canActivate: [AuthGuard] },
+  { path: 'list-client', component: AdminListClientComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];

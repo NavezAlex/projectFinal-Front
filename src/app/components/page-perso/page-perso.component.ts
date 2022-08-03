@@ -14,17 +14,21 @@ export class PagePersoComponent implements OnInit {
 
   clientData : Observable<User> | undefined;
   userName : string = '';
+  isAdmin : boolean = false;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private clientService : ClientService) { }
 
   ngOnInit(): void {
-    
+    console.log("on passe");
     this.loadClient();
   }
 
   loadClient(){
 
     this.userName = sessionStorage.getItem('username') || '';
+    if(this.userName == 'Admin'){
+      this.isAdmin = true;
+    }
 
     if(this.userName){
       this.clientService.loadClientByName(this.userName)

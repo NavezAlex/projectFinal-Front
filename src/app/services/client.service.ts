@@ -16,7 +16,7 @@ export class ClientService {
   }
 
   loadClientById(id : number){
-    return this.http.get(environment.apiUrl + '/id/' + id);
+    return this.http.get(environment.apiUrl + '/client/id/' + id);
   }
 
   loadClientByName(name : string) : Observable<User> {
@@ -24,7 +24,7 @@ export class ClientService {
   }
 
   saveClient(clientData : User){
-    return this.http.post(environment.apiUrl+'/client/register', clientData)
+    return this.http.post(environment.apiUrl+'/client/register', clientData);
   }
 
   updateClient(id : number, clientUpdate : User){

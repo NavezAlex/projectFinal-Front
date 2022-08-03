@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Categorie } from 'src/app/models/categorie';
+import { ExtService } from 'src/app/services/ext.service';
 import { PanierService } from 'src/app/services/panier.service';
 import { environment } from 'src/environments/environment';
 
@@ -27,7 +28,7 @@ export class NavigationComponent implements OnInit {
   constructor(private route: ActivatedRoute, private client : HttpClient, private panierService : PanierService) { }
 
   ngOnInit(): void {
-    this.loadData();
+    this.loadData(); 
     this.updateStatus();
   }
 
@@ -36,7 +37,7 @@ export class NavigationComponent implements OnInit {
       this.client.get<Categorie[]>(environment.apiUrl + '/categorie/list' )
       .subscribe({
         next: data => { 
-          console.log(data);
+          //console.log(data);
           this.productCategory = data;
         }, 
         error: error => { 
