@@ -33,7 +33,6 @@ export class AdminListArticleComponent implements OnInit {
          }, 
         complete: () => {}  
       });
-      console.log(this.products);
   }
 
 }

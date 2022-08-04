@@ -88,12 +88,12 @@ export class AdminArticleUpdateComponent implements OnInit {
         .subscribe({ next: data => {
           console.log(data);
             console.log('Update OK');
+            this.router.navigate(['/list-article']);
           }, error: error => {
             console.log(error);
           }
         });
     }
-    this.router.navigate(['/list-article']);
   }
-  
+
 }

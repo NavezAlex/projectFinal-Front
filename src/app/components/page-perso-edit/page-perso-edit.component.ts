@@ -74,11 +74,11 @@ export class PagePersoEditComponent implements OnInit {
       this.clientService.updateClient(this.idClient, this.persoFormGroup.value)
         .subscribe({ next: data => {
             console.log('Update OK');
+            this.router.navigate(['/perso']);
           }, error: error => {
             console.log(error);
           }
         });
-      this.router.navigate(['/perso']);
     }
   }
 

@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table/table-data-source';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { filter } from 'rxjs';
 import { Article } from 'src/app/models/article';
 import { PanierItem } from 'src/app/models/panier-item';
 import { ArticleService } from 'src/app/services/article.service';
@@ -18,7 +19,11 @@ export class ArticleComponent implements OnInit {
   products: Article[] = [];
 
 
-  constructor( private route: ActivatedRoute, private client : HttpClient, private panierService : PanierService ) { }
+  constructor( private route: ActivatedRoute, private router : Router, private client : HttpClient, private panierService : PanierService ) { 
+    this.route.url.subscribe(url =>{
+      this.loadData();
+    });
+  }
 
   ngOnInit() {
     this.loadData();
